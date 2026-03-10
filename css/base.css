@@ -1,0 +1,73 @@
+/* Martin — base.css */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5; min-height: 100vh;
+  background: var(--bg); color: var(--text);
+}
+img { display: block; max-width: 100%; }
+a   { color: inherit; }
+@keyframes pulse  { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes float  { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(30px,-20px) scale(1.05)} 66%{transform:translate(-20px,15px) scale(.97)} }
+::-webkit-scrollbar { width:6px }
+::-webkit-scrollbar-track { background:transparent }
+::-webkit-scrollbar-thumb { background:rgba(129,140,248,.3); border-radius:3px }
+
+/* Temas */
+[data-theme="light"], .theme-light {
+  --bg:#f8fafc; --bg-secondary:#f1f5f9; --surface:#ffffff; --surface-2:#f3f4f6;
+  --border:rgba(0,0,0,0.10); --border-input:#d1d5db;
+  --text:#0f172a; --text-muted:#64748b; --text-placeholder:#94a3b8;
+  --input-bg:#ffffff; --input-color:#0f172a;
+  --accent:#6366f1; --accent-hover:#4f46e5;
+  --shadow:0 2px 12px rgba(0,0,0,0.08);
+  --nav-bg:rgba(248,250,252,0.92); --nav-border:rgba(0,0,0,0.07); --nav-text:rgba(15,23,42,0.70);
+  --dropdown-bg:#ffffff;
+}
+[data-theme="dark"], .theme-dark {
+  --bg:#060818; --bg-secondary:#0d1117; --surface:rgba(255,255,255,0.05); --surface-2:rgba(255,255,255,0.03);
+  --border:rgba(255,255,255,0.08); --border-input:rgba(255,255,255,0.15);
+  --text:#f1f5f9; --text-muted:rgba(148,163,184,0.8); --text-placeholder:rgba(148,163,184,0.45);
+  --input-bg:rgba(255,255,255,0.06); --input-color:#f1f5f9;
+  --accent:#818cf8; --accent-hover:#6366f1;
+  --shadow:0 4px 24px rgba(0,0,0,0.35);
+  --nav-bg:rgba(6,8,24,0.88); --nav-border:rgba(255,255,255,0.08); --nav-text:rgba(203,213,225,0.75);
+  --dropdown-bg:#1a1d2e;
+}
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] {
+    --bg:#060818; --bg-secondary:#0d1117; --surface:rgba(255,255,255,0.05); --surface-2:rgba(255,255,255,0.03);
+    --border:rgba(255,255,255,0.08); --border-input:rgba(255,255,255,0.15);
+    --text:#f1f5f9; --text-muted:rgba(148,163,184,0.8); --text-placeholder:rgba(148,163,184,0.45);
+    --input-bg:rgba(255,255,255,0.06); --input-color:#f1f5f9;
+    --accent:#818cf8; --accent-hover:#6366f1; --shadow:0 4px 24px rgba(0,0,0,0.35);
+    --nav-bg:rgba(6,8,24,0.88); --nav-border:rgba(255,255,255,0.08); --nav-text:rgba(203,213,225,0.75);
+    --dropdown-bg:#1a1d2e;
+  }
+}
+@media (prefers-color-scheme: light) {
+  [data-theme="auto"] {
+    --bg:#f8fafc; --bg-secondary:#f1f5f9; --surface:#ffffff; --surface-2:#f3f4f6;
+    --border:rgba(0,0,0,0.10); --border-input:#d1d5db;
+    --text:#0f172a; --text-muted:#64748b; --text-placeholder:#94a3b8;
+    --input-bg:#ffffff; --input-color:#0f172a;
+    --accent:#6366f1; --accent-hover:#4f46e5; --shadow:0 2px 12px rgba(0,0,0,0.08);
+    --nav-bg:rgba(248,250,252,0.92); --nav-border:rgba(0,0,0,0.07); --nav-text:rgba(15,23,42,0.70);
+    --dropdown-bg:#ffffff;
+  }
+}
+
+/* Inputs themed */
+input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+  background: var(--input-bg) !important; color: var(--input-color) !important;
+  border-color: var(--border-input) !important;
+}
+input::placeholder, textarea::placeholder { color: var(--text-placeholder) !important; }
+input:focus:not([type="checkbox"]), select:focus, textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15) !important;
+  outline: none !important;
+}
+.pw-opt, .pw-mopt { color: var(--text) !important; }
+.pw-opt:hover, .pw-mopt:hover { background: var(--surface-2) !important; }

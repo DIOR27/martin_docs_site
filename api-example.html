@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backend</title>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Backend">
+  <meta property="og:site_name" content="Martin App">
+  <meta property="og:locale" content="es">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Backend">
+  <link rel="icon" type="image/webp" href="assets-icon.webp.html">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#6366f1">
+  
+  
+
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/api-example.css">
+  <script src="js/select.js" defer></script>
+  <script src="js/nav.js" defer></script>
+</head>
+<body>
+  
+<nav class="martin-nav"><a href="index.html" class="mn-logo"><img src="assets/icon.webp" alt=""><span>Martin App</span></a><div class="mn-links"><a href="index.html">Inicio</a><a href="about.html">Acerca de</a><a href="components.html">Componentes</a><a href="api-example.html" class="active">Backend</a></div><button class="mn-burger" aria-label="Menú"><span></span><span></span><span></span></button><div class="mn-drawer"><a href="index.html">Inicio</a><a href="about.html">Acerca de</a><a href="components.html">Componentes</a><a href="api-example.html" class="active">Backend</a></div></nav>
+  
+  <div class="m-0"><div class="m-1"><h1 class="m-2">Ejemplo de Backend</h1><p class="m-3">Selecciona valores y presiona el boton. El boton llama a una funcion Python en el servidor.</p></div><div class="m-4"><div class="m-5"><span class="m-6">Lenguaje</span><style>#lang_select_list .pw-opt{color:var(--text);background:transparent;border-radius:6px;transition:background .12s}#lang_select_list .pw-opt:hover{background:var(--surface-2)}#lang_select_list .pw-opt[data-sel="1"]{background:rgba(99,102,241,0.15);color:var(--accent);font-weight:600}</style><div id="lang_select_wrap" class="m-7">  <input type="hidden" id="lang_select_val" value="py">  <div id="lang_select_btn" onclick="pwSelectToggle('lang_select')"     class="m-8">    <span id="lang_select_label" class="m-9">Python</span>    <svg id="lang_select_arrow" width="12" height="12" viewBox="0 0 12 12"          class="m-10">      <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>    </svg>  </div>  <div id="lang_select_drop"     class="m-11">    <div class="m-12">      <input id="lang_select_search" type="text" placeholder="Buscar..."        oninput="pwSelectFilter('lang_select',this.value)"        class="m-13">    </div>    <div id="lang_select_list" class="m-14">      <div class="pw-opt" data-val="py" data-label="Python" onclick="pwSelectPick('lang_select','py','Python')" data-sel="1" class="m-15">Python</div><div class="pw-opt" data-val="js" data-label="JavaScript" onclick="pwSelectPick('lang_select','js','JavaScript')" data-sel="0" class="m-16">JavaScript</div><div class="pw-opt" data-val="rs" data-label="Rust" onclick="pwSelectPick('lang_select','rs','Rust')" data-sel="0" class="m-17">Rust</div><div class="pw-opt" data-val="go" data-label="Go" onclick="pwSelectPick('lang_select','go','Go')" data-sel="0" class="m-18">Go</div><div class="pw-opt" data-val="ts" data-label="TypeScript" onclick="pwSelectPick('lang_select','ts','TypeScript')" data-sel="0" class="m-19">TypeScript</div>    </div>  </div></div></div><div class="m-20"><span class="m-21">Areas de trabajo</span><style>#areas_multi_list .pw-mopt:hover{background:var(--surface-2)}</style><div id="areas_multi_wrap" class="m-22">  <div id="areas_multi_box"    class="m-23">    <div id="areas_multi_tags" class="m-24"></div>    <input id="areas_multi_input" type="text"      class="m-25">  </div>  <div id="areas_multi_hidden"></div>  <div id="areas_multi_drop"    class="m-26">    <div id="areas_multi_list"      class="m-27">      <div class="pw-mopt" data-val="Diseno" data-label="Diseno" class="m-28">Diseno</div><div class="pw-mopt" data-val="Frontend" data-label="Frontend" class="m-29">Frontend</div><div class="pw-mopt" data-val="Backend" data-label="Backend" class="m-30">Backend</div><div class="pw-mopt" data-val="DevOps" data-label="DevOps" class="m-31">DevOps</div><div class="pw-mopt" data-val="Testing" data-label="Testing" class="m-32">Testing</div><div class="pw-mopt" data-val="Mobile" data-label="Mobile" class="m-33">Mobile</div>    </div>    <div class="m-34">      <span id="areas_multi_clear"        class="m-35">        Limpiar todo      </span>    </div>  </div></div></div><button class="m-36" id="send_btn">Enviar al servidor -></button><div id="resultado" data-state="empty" class="m-37"></div><style>#resultado[data-state=empty]{display:none}#resultado[data-state=loading]{  display:block;padding:16px;  border-color:var(--border);background:var(--surface);  color:var(--text-muted);font-size:14px}#resultado[data-state=success]{  display:block;padding:16px;  border-color:rgba(52,211,153,0.3);background:var(--surface)}#resultado[data-state=error]{  display:block;padding:16px;  border-color:rgba(248,113,113,0.3);background:var(--surface)}</style></div></div>
+  
+  <button id="_martin_theme_btn" onclick="window._martinCycleTheme()" title="Cambiar tema" class="m-38" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor=''">&#127763;</button>
+  
+  <script src="js/api-example.js"></script>
+</body>
+</html>

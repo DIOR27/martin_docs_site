@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examples | Martin Docs</title>
+  <meta name="description" content="Reusable documentation patterns for Martin.">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Examples | Martin Docs">
+  <meta property="og:description" content="Reusable documentation patterns for Martin.">
+  <meta property="og:site_name" content="Martin App">
+  <meta property="og:locale" content="es">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Examples | Martin Docs">
+  <meta name="twitter:description" content="Reusable documentation patterns for Martin.">
+  <link rel="icon" type="image/webp" href="assets-icon.webp.html">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#6366f1">
+  
+  
+
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/examples.css">
+  <script src="js/select.js" defer></script>
+  <script src="js/nav.js" defer></script>
+</head>
+<body>
+  
+<nav class="martin-nav"><a href="index.html" class="mn-logo"><img src="assets/icon.webp" alt=""><span>Martin App</span></a><div class="mn-links"><a href="index.html">Home</a><a href="getting-started.html">Guide</a><a href="widgets-ui.html">UI Widgets</a><a href="widgets-pro.html">Pro Widgets</a><a href="examples.html" class="active">Examples</a></div><button class="mn-burger" aria-label="Menú"><span></span><span></span><span></span></button><div class="mn-drawer"><a href="index.html">Home</a><a href="getting-started.html">Guide</a><a href="widgets-ui.html">UI Widgets</a><a href="widgets-pro.html">Pro Widgets</a><a href="examples.html" class="active">Examples</a></div></nav>
+  
+  <div class="m-0"><div class="m-1"><h1 class="m-2">Reusable patterns</h1><p class="m-3">This page collects common structures so you can move faster while keeping the interface consistent.</p></div><div class="m-4"><div class="m-5"><h3 class="m-6">Simple landing page</h3><p class="m-7">A centered Hero with two buttons is often enough for a clean homepage.</p><pre class="m-8"><code>Hero(
+    badge="New",
+    title=Heading("My product"),
+    subtitle=Paragraph("Main description"),
+    actions=[
+        Button("Get started", background=Colors.indigo, color="white"),
+        Button("Documentation", variant="ghost"),
+    ],
+    layout="center",
+    min_height=420,
+)</code></pre></div><div class="m-9"><h3 class="m-10">Documentation section</h3><p class="m-11">A short heading, supporting text, and a code block already make a strong docs page.</p><pre class="m-12"><code>Column(
+    gap=16,
+    children=[
+        Heading("Installation"),
+        Paragraph("Start by creating the project."),
+        Raw("<pre>martin new docs</pre>"),
+    ],
+)</code></pre></div><div class="m-13"><h3 class="m-14">Feature cards</h3><p class="m-15">A flexible row of cards communicates benefits quickly.</p><pre class="m-16"><code>Row(
+    gap=16,
+    class="m-17",
+    children=[
+        Card(children=[Heading("Fast"), Paragraph("Hot reload included")]),
+        Card(children=[Heading("Simple"), Paragraph("Widgets in Python")]),
+    ],
+)</code></pre></div></div><div class="m-18"></div><h2 class="m-19">Final snippet</h2><p class="m-20">With this structure you get a clean, navigable, and exportable documentation site.</p><pre class="m-21"><code>from martin import App, Router
+from pages.home import home
+from pages.widgets_ui import widgets_ui
+from pages.widgets_pro import widgets_pro
+
+router = Router()
+router.add("/", home, title="Home")
+router.add("/widgets-ui", widgets_ui, title="UI Widgets")
+router.add("/widgets-pro", widgets_pro, title="Pro Widgets")
+
+app = App(router=router, title="Martin Docs")
+
+if __name__ == "__main__":
+    app.run()</code></pre><div class="m-22"><a href="index.html" class="m-23">Back home</a><a href="widgets-pro.html" class="m-24">Open Pro Widgets</a></div></div>
+  
+  <button id="_martin_theme_btn" onclick="window._martinCycleTheme()" title="Cambiar tema" class="m-25" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor=''">&#127763;</button>
+  
+  <script src="js/examples.js"></script>
+</body>
+</html>

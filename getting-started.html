@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started | Martin Docs</title>
+  <meta name="description" content="First steps with Martin.">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Getting Started | Martin Docs">
+  <meta property="og:description" content="First steps with Martin.">
+  <meta property="og:site_name" content="Martin App">
+  <meta property="og:locale" content="es">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Getting Started | Martin Docs">
+  <meta name="twitter:description" content="First steps with Martin.">
+  <link rel="icon" type="image/webp" href="assets-icon.webp.html">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#6366f1">
+  
+  
+
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/getting-started.css">
+  <script src="js/select.js" defer></script>
+  <script src="js/nav.js" defer></script>
+</head>
+<body>
+  
+<nav class="martin-nav"><a href="index.html" class="mn-logo"><img src="assets/icon.webp" alt=""><span>Martin App</span></a><div class="mn-links"><a href="index.html">Home</a><a href="getting-started.html" class="active">Guide</a><a href="widgets-ui.html">UI Widgets</a><a href="widgets-pro.html">Pro Widgets</a><a href="examples.html">Examples</a></div><button class="mn-burger" aria-label="Menú"><span></span><span></span><span></span></button><div class="mn-drawer"><a href="index.html">Home</a><a href="getting-started.html" class="active">Guide</a><a href="widgets-ui.html">UI Widgets</a><a href="widgets-pro.html">Pro Widgets</a><a href="examples.html">Examples</a></div></nav>
+  
+  <div class="m-0"><div class="m-1"><h1 class="m-2">Getting started</h1><p class="m-3">A single page to understand the project structure and start quickly.</p></div><div class="m-4"><div class="m-5"><span class="m-6">1. Create project</span><span class="m-7">Generate the base project with the CLI.</span><pre class="m-8"><code>martin new docs</code></pre></div><div class="m-9"><span class="m-10">2. Run</span><span class="m-11">Start the local development server.</span><pre class="m-12"><code>cd docs
+martin run</code></pre></div><div class="m-13"><span class="m-14">3. Export</span><span class="m-15">Generate static output.</span><pre class="m-16"><code>martin export --out dist</code></pre></div></div><div class="m-17"></div><div class="m-18"><div class="m-19"><h2 class="m-20">Structure</h2><span class="m-21">Keep pages in separate files so the documentation stays maintainable.</span></div><pre class="m-22"><code>docs/
+├─ main.py
+└─ pages/
+   ├─ home.py
+   ├─ getting_started.py
+   ├─ widgets_ui.py
+   ├─ widgets_pro.py
+   └─ examples.py</code></pre></div><div class="m-23"><div class="m-24"><h2 class="m-25">Minimal page</h2><span class="m-26">Each route points to a function that returns widgets.</span></div><pre class="m-27"><code>from martin import Column, Heading, Paragraph, PageConfig
+
+def home():
+    page = Column(
+        padding=48,
+        gap=16,
+        children=[
+            Heading("Hello Martin"),
+            Paragraph("This is my first page."),
+        ],
+    )
+
+    return page, PageConfig(
+        title="Home",
+        description="Landing page",
+    )</code></pre></div><div class="m-28"><div class="m-29"><h2 class="m-30">Next step</h2><span class="m-31">Once this part is clear, move on to the widget catalog.</span></div><div class="m-32"><a href="widgets-ui.html" class="m-33">UI Widgets</a><a href="widgets-pro.html" class="m-34">Pro Widgets</a></div></div></div>
+  
+  <button id="_martin_theme_btn" onclick="window._martinCycleTheme()" title="Cambiar tema" class="m-35" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor=''">&#127763;</button>
+  
+  <script src="js/getting-started.js"></script>
+</body>
+</html>
